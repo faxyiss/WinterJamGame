@@ -53,6 +53,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         return Physics2D.Raycast(transform.position, Vector2.down, 0.7f, _groundLayer);                   
     }
+    
     private void Move()
     {
         float _targetSpeed = _movementSpeed * _moveDirection;
