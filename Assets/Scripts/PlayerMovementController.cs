@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class PlayerMovementController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _movementSpeed;
+    [SerializeField] private float _acceleration;
+    [SerializeField] private float _decceleration;
+    [SerializeField] private float _velPower;
     private float _moveDirection;
 
     [Header("Jump")]
@@ -51,8 +55,11 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void Move()
     {
-
-        _rb.velocity = new Vector2(_moveDirection * _movementSpeed * Time.fixedDeltaTime, _rb.velocity.y);
+        float _targetSpeed = _movementSpeed * _moveDirection;
+        float _speedDif = _targetSpeed - _rb.velocity.x;
+        float _accelRate = (Mathf.Abs(_targetSpeed) > 0.01f) ? _acceleration : _decceleration;
+        float _movement = MathF.Pow(MathF.Abs(_speedDif) * _acceleration, _velPower) * Mathf.Sign(_speedDif);
+        _rb.AddForce(_movement * Vector2.right);
     }
     private void InputMoveDir()
     {
