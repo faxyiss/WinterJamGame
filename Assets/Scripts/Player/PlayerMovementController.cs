@@ -23,26 +23,30 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundCheckSize;
 
-
-
-    private RaycastHit2D _groundCheckRay;
-
-    bool _onAir = false;
-    
+    [Header("Cayote Time")]
+    [SerializeField] private float _cayoteTime;
+    private float _cayoteTimeCounter;
 
     void Start()
     {
      _rb = GetComponent<Rigidbody2D>();  
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        GroundCheck();
         InputMoveDir();
-        
 
-        if (Input.GetKeyDown(KeyCode.Space) & GroundCheck())
+        if (GroundCheck())
+        {
+            _cayoteTimeCounter = _cayoteTime;
+        }
+        else
+        {
+            _cayoteTimeCounter -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && _cayoteTimeCounter > 0)
         {
             Jump();
         }
@@ -54,8 +58,7 @@ public class PlayerMovementController : MonoBehaviour
     }
     
     private bool GroundCheck()
-    {
-        
+    {       
         return Physics2D.OverlapCircle(_groundCheck.position,_groundCheckSize , _groundLayer);
     }
     
@@ -74,6 +77,9 @@ public class PlayerMovementController : MonoBehaviour
     private void Jump()
     {
         _rb.velocity = new Vector2(_moveDirection * _movementSpeed * Time.fixedDeltaTime, 0);
-        _rb.AddForce(new Vector2(_rb.velocity.x, _jumpForce), ForceMode2D.Impulse);        
+        _rb.AddForce(new Vector2(_rb.velocity.x, _jumpForce), ForceMode2D.Impulse);
+        _cayoteTimeCounter = 0;
     }
+
+    
 }

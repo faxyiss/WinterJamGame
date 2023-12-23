@@ -93,7 +93,7 @@ MonoBehaviour:
   closeTimer: 3
   openTimer: 3
   col: {fileID: 8142130796434613590}
-  isDisable: 0
+  spriteRenderer: {fileID: 7971354151019583486}
 --- !u!1 &3168679330102093542
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 524217945, guid: 6585763b53963084fa0b02ac091c17d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
