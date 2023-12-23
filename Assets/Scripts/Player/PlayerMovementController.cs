@@ -13,6 +13,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float _acceleration;
     [SerializeField] private float _decceleration;
     [SerializeField] private float _velPower;
+
     private float _moveDirection;
 
     [Header("Jump")]
@@ -26,17 +27,13 @@ public class PlayerMovementController : MonoBehaviour
     [Header("Cayote Time")]
     [SerializeField] private float _cayoteTime;
     private float _cayoteTimeCounter;
-
     void Start()
     {
      _rb = GetComponent<Rigidbody2D>();  
-    }
-
-    
+    }  
     void Update()
     {
         InputMoveDir();
-
         if (GroundCheck())
         {
             _cayoteTimeCounter = _cayoteTime;
@@ -45,12 +42,10 @@ public class PlayerMovementController : MonoBehaviour
         {
             _cayoteTimeCounter -= Time.deltaTime;
         }
-
         if (Input.GetKeyDown(KeyCode.Space) && _cayoteTimeCounter > 0)
         {
             Jump();
         }
-
     }
     private void FixedUpdate()
     {
@@ -79,7 +74,5 @@ public class PlayerMovementController : MonoBehaviour
         _rb.velocity = new Vector2(_moveDirection * _movementSpeed * Time.fixedDeltaTime, 0);
         _rb.AddForce(new Vector2(_rb.velocity.x, _jumpForce), ForceMode2D.Impulse);
         _cayoteTimeCounter = 0;
-    }
-
-    
+    }    
 }
