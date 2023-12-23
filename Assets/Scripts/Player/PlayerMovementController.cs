@@ -20,6 +20,9 @@ public class PlayerMovementController : MonoBehaviour
 
     [Header("Ground Check")]
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private Transform _groundCheck;
+    [SerializeField] private float _groundCheckSize;
+
 
 
     private RaycastHit2D _groundCheckRay;
@@ -34,7 +37,8 @@ public class PlayerMovementController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
+    {
+        GroundCheck();
         InputMoveDir();
         
 
@@ -48,10 +52,11 @@ public class PlayerMovementController : MonoBehaviour
     {
         Move();
     }
-
+    
     private bool GroundCheck()
     {
-        return Physics2D.Raycast(transform.position, Vector2.down, 0.7f, _groundLayer);                   
+        
+        return Physics2D.OverlapCircle(_groundCheck.position,_groundCheckSize , _groundLayer);
     }
     
     private void Move()
@@ -59,7 +64,7 @@ public class PlayerMovementController : MonoBehaviour
         float _targetSpeed = _movementSpeed * _moveDirection;
         float _speedDif = _targetSpeed - _rb.velocity.x;
         float _accelRate = (Mathf.Abs(_targetSpeed) > 0.01f) ? _acceleration : _decceleration;
-        float _movement = MathF.Pow(MathF.Abs(_speedDif) * _acceleration, _velPower) * Mathf.Sign(_speedDif);
+        float _movement = MathF.Pow(MathF.Abs(_speedDif) * _accelRate, _velPower) * Mathf.Sign(_speedDif);
         _rb.AddForce(_movement * Vector2.right);
     }
     private void InputMoveDir()

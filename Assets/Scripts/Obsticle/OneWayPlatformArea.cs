@@ -20,17 +20,21 @@ public class OneWayPlatformArea : MonoBehaviour
 
      IEnumerator DisablePlatform()
     {
-        isDisable = true;
+        isDisable = true;       
         yield return new WaitForSeconds(closeTimer);
         col.enabled = false;
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        col.gameObject.layer = LayerMask.NameToLayer("Default");
         
         StartCoroutine(OpenPlatform());
     }
 
     IEnumerator OpenPlatform()
     {
-        yield return new WaitForSeconds(openTimer);
+        yield return new WaitForSeconds(openTimer);        
         col.enabled = true;
+        col.gameObject.layer = LayerMask.NameToLayer("Floor");
+        gameObject.layer = LayerMask.NameToLayer("Floor");
         isDisable = false;        
     }
 }
