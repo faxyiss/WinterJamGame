@@ -7,7 +7,7 @@ public class OneWayPlatformArea : MonoBehaviour
     [SerializeField] private float closeTimer  = 3f;
     [SerializeField] private float openTimer = 30f;
     [SerializeField] private Collider2D col;
-    [SerializeField] private bool isDisable = false;
+    private bool isDisable = false;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
