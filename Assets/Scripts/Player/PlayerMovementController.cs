@@ -27,6 +27,9 @@ public class PlayerMovementController : MonoBehaviour
     [Header("Cayote Time")]
     [SerializeField] private float _cayoteTime;
     private float _cayoteTimeCounter;
+
+    [Header("Sound")]
+    [SerializeField] PlayerSound ps;
     void Start()
     {
      _rb = GetComponent<Rigidbody2D>();  
@@ -71,6 +74,7 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void Jump()
     {
+        ps.JumpSound();
         _rb.velocity = new Vector2(_moveDirection * _movementSpeed * Time.fixedDeltaTime, 0);
         _rb.AddForce(new Vector2(_rb.velocity.x, _jumpForce), ForceMode2D.Impulse);
         _cayoteTimeCounter = 0;

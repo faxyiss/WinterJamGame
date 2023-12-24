@@ -7,9 +7,10 @@ public class SceneManagers: MonoBehaviour
 {
     [SerializeField] public string nextSceneName;
     
-
+    
     public void LoadNextSceen()
     {
+
         SceneManager.LoadScene(nextSceneName);
     }
 

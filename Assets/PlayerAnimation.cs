@@ -15,8 +15,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] PlayerMovementController pmc;
-    [SerializeField] Player P;
-
+    
     public static  bool isFlip = true;
 
     private enum MovementState { idle, running, jumping, falling, death }
@@ -30,10 +29,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         Flip();
         UpdateAnimationState();
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            P.Death();
-        }
+        
     }
     private void UpdateAnimationState()
     {       

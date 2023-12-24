@@ -8,8 +8,10 @@ using UnityEngine;
     [SerializeField] PlayerAnimation pa;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GM gm;
+    [SerializeField] PlayerSound ps;
 
     public void Death(){
+        ps.DeathSound();
         pa.DeathAnim();
         rb.velocity = Vector3.zero;
         pmc.enabled = false;
