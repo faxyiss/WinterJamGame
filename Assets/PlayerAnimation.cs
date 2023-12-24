@@ -32,16 +32,12 @@ public class PlayerAnimation : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             DeathAnim();
+            rb.velocity = Vector3.zero;
             pmc.enabled = false;
         }
-
-
-
     }
     private void UpdateAnimationState()
-    {
-        
-
+    {       
         if ((rb.velocity.x < -.1f || rb.velocity.x > .1f) & pmc.GroundCheck() )
         {
             state = MovementState.running;           
@@ -64,10 +60,7 @@ public class PlayerAnimation : MonoBehaviour
             {
                 state = MovementState.falling;
             }
-        }
-
-        
-
+        }       
         animator.SetInteger("State", (int)state);
     }
     private void Flip()
@@ -84,7 +77,7 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
-    private void DeathAnim()
+    public void DeathAnim()
     {
         
         animator.SetTrigger("Death");
