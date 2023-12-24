@@ -232,6 +232,7 @@ MonoBehaviour:
   animator: {fileID: 697331475785975385}
   rb: {fileID: 1893265898938290431}
   spriteRenderer: {fileID: 4439481247755193350}
+  pmc: {fileID: 4941064594084023905}
 --- !u!95 &697331475785975385
 Animator:
   serializedVersion: 5

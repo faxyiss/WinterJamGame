@@ -13,6 +13,16 @@ public class CameraHolder : MonoBehaviour
     private void Update()
     {
        
-        transform.position = new Vector3(_folowPos.position.x + _ofsetX,_ofsetY, 0);
+        
+
+        if (PlayerAnimation.isFlip)
+        {
+            transform.position = new Vector3(_folowPos.position.x + _ofsetX, _ofsetY, 0);
+        }
+        else
+        {
+            transform.position = new Vector3(_folowPos.position.x + -_ofsetX, _ofsetY, 0);
+        }
+
     }
 }

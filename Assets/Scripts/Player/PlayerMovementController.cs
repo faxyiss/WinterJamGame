@@ -52,7 +52,7 @@ public class PlayerMovementController : MonoBehaviour
         Move();
     }
     
-    private bool GroundCheck()
+    public bool GroundCheck()
     {       
         return Physics2D.OverlapCircle(_groundCheck.position,_groundCheckSize , _groundLayer);
     }
