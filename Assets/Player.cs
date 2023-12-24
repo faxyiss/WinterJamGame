@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+ public class Player : MonoBehaviour
 {
-    [SerializeField] static PlayerMovementController pmc;
-    [SerializeField] static PlayerAnimation pa;
-    [SerializeField] static Rigidbody2D rb;
+    [SerializeField] PlayerMovementController pmc;
+    [SerializeField] PlayerAnimation pa;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] GM gm;
 
-    static public void Death(){
+    public void Death(){
         pa.DeathAnim();
         rb.velocity = Vector3.zero;
         pmc.enabled = false;
+    }
+    public void DeathAnimFinished()
+    {
+        gm.endGame();
     }
 }

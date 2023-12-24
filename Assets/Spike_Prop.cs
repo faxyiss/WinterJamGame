@@ -8,7 +8,7 @@ public class Spike_Prop : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Player.Death();
+            GameObject.FindWithTag("GM").GetComponent<GM>().DeathPlayer();
         }
     }
 }

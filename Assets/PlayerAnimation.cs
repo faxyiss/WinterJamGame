@@ -15,6 +15,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] PlayerMovementController pmc;
+    [SerializeField] Player P;
 
     public static  bool isFlip = true;
 
@@ -31,9 +32,7 @@ public class PlayerAnimation : MonoBehaviour
         UpdateAnimationState();
         if (Input.GetKeyDown(KeyCode.K))
         {
-            DeathAnim();
-            rb.velocity = Vector3.zero;
-            pmc.enabled = false;
+            P.Death();
         }
     }
     private void UpdateAnimationState()
