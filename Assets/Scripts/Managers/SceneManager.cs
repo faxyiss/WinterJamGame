@@ -13,6 +13,11 @@ public class SceneManagers: MonoBehaviour
 
         SceneManager.LoadScene(nextSceneName);
     }
+    public void LoadMenu()
+    {
+
+        SceneManager.LoadScene("MainMenu");
+    }
 
     public void CloseGame()
     {

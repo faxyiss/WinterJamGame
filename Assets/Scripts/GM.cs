@@ -22,7 +22,7 @@ public class GM : MonoBehaviour
 
     public void endGame()
     {
-        soundManager.CloseMusic();
+        //soundManager.CloseMusic();
         UýDeath.SetActive(true);
     }
     public void winGame()
