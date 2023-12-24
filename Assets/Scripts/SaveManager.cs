@@ -7,10 +7,44 @@ public class SaveManager : MonoBehaviour
 {
     [SerializeField] Toggle togle1;
     [SerializeField] Toggle togle2;
-    public int MusicOn = 1;
-    private int effectOn = 1;
-       
-    void Update()
+    int MusicOn;
+    int effectOn;
+    private void Start()
+    {
+        Debug.Log("Music  :" + PlayerPrefs.GetInt("Music"));
+        Debug.Log("effect  :" + PlayerPrefs.GetInt("effect"));
+
+        if (PlayerPrefs.GetInt("Music") == 1)
+        {
+            togle1.isOn = true;
+
+        }
+        else
+        {
+            togle1.isOn = false;
+
+        }
+
+        if (PlayerPrefs.GetInt("effect") == 1)
+        {
+            togle2.isOn = true;
+
+        }
+        else
+        {
+            togle2.isOn = false;
+
+        }
+        
+    }
+    
+
+    public void Save()
+    {
+        PlayerPrefs.SetInt("Music", MusicOn);
+        PlayerPrefs.SetInt("effect", effectOn);
+    }
+    public void changed()
     {
         if (togle1.isOn)
         {
@@ -30,10 +64,7 @@ public class SaveManager : MonoBehaviour
             effectOn = 0;
         }
     }
-    public void Save()
-    {
-        PlayerPrefs.SetInt("Music", MusicOn);
-        PlayerPrefs.SetInt("effect", effectOn);
-    }
+
+    
     
 }
