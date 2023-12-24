@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6322929620208238769}
   - component: {fileID: 3655231727709823838}
   - component: {fileID: 8503383758605323072}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: small_wood_Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

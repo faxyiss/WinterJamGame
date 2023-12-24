@@ -29,8 +29,9 @@ public class GM : MonoBehaviour
     }
     public void AddScore()
     {
-        Scoretext.text = $"Score : {Score}";
+        
         Score++;
+        Scoretext.text = $"Score : {Score}";
     }
 
 
