@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 148585488980041461}
   - component: {fileID: 8310450259205500546}
   - component: {fileID: 2869986089177259787}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Colider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee077f43806ef24d9edd4d379993625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeTimer: 3
-  openTimer: 3
+  closeTimer: 0.75
+  openTimer: 5
   col: {fileID: 8142130796434613590}
   spriteRenderer: {fileID: 7971354151019583486}
 --- !u!1 &3168679330102093542

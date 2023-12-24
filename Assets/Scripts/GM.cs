@@ -11,6 +11,9 @@ public class GM : MonoBehaviour
     [SerializeField] TMP_Text Scoretext;
     [SerializeField] SoundManager soundManager;
     [SerializeField] GameObject UýMenu;
+
+    [SerializeField] GameObject UýWin;
+    [SerializeField] TMP_Text ScoretextPanel;
     bool Menu_Closed = true;
     public int Score;
     private void Start()
@@ -41,6 +44,10 @@ public class GM : MonoBehaviour
     }
     public void winGame()
     {
+        Time.timeScale = 0f;
+        UýWin.SetActive(true);
+        ScoretextPanel.text = $"Score : {Score}";
+        player.Death();
 
     }
     public void AddScore()
