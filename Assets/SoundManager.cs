@@ -8,18 +8,22 @@ public class SoundManager : MonoBehaviour
     int onEffect;
     void Start()
     {
-       onEffect = PlayerPrefs.GetInt("Music");
-       onMusic = PlayerPrefs.GetInt("effect");
+       onEffect = PlayerPrefs.GetInt("effect");
+       onMusic = PlayerPrefs.GetInt("Music");
 
         if (onMusic == 1)
         {
-            GetComponent<AudioSource>().volume = 0.4f;
+            GetComponent<AudioSource>().volume = 0.2f;
         }
         else if (onMusic == 0)
         {
             GetComponent<AudioSource>().volume = 0f;
         }
 
+    }
+    public void CloseMusic()
+    {
+        GetComponent<AudioSource>().volume = 0f;
     }
   
     

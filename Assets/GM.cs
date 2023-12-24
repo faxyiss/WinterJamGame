@@ -9,6 +9,7 @@ public class GM : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] GameObject UýDeath;
     [SerializeField] TMP_Text Scoretext;
+    [SerializeField] SoundManager soundManager;
     public int Score;
      
 
@@ -21,6 +22,7 @@ public class GM : MonoBehaviour
 
     public void endGame()
     {
+        soundManager.CloseMusic();
         UýDeath.SetActive(true);
     }
     public void winGame()
